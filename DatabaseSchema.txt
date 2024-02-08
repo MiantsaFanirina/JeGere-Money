@@ -1,0 +1,103 @@
+// Modèle pour les utilisateurs
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // Relation avec les comptes
+  accounts  Account[]
+}
+
+// Modèle pour les comptes
+model Account {
+  id          Int      @id @default(autoincrement())
+  type        String   // "personal" ou "child"
+  balance     Float    @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  // Relation avec l'utilisateur propriétaire
+  owner       User     @relation(fields: [ownerId], references: [id])
+  ownerId     Int
+  // Relation avec le compte parent (pour les comptes enfants)
+  parent      User?    @relation("ParentChild", fields: [parentId], references: [id])
+  parentId    Int?
+  // Relation avec les transactions
+  transactions Transaction[]
+}
+
+// Modèle pour les transactions
+model Transaction {
+  id          Int      @id @default(autoincrement())
+  amount      Float
+  type        String   // "deposit" ou "expense"
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  // Relation avec le compte associé
+  account     Account  @relation(fields: [accountId], references: [id])
+  accountId   Int
+}
+
+// Modèle pour les événements de calendrier
+model CalendarEvent {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  description String
+  amount      Float
+  date        DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Modèle pour les messages du forum
+model ForumPost {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+
+User (Utilisateur) :
+    Ce modèle représente les utilisateurs de l'application.
+    Chaque utilisateur a un identifiant unique (id) généré automatiquement.
+    Les utilisateurs ont un nom d'utilisateur (username) et une adresse e-mail (email) uniques pour l'authentification.
+    Le mot de passe de l'utilisateur est stocké de manière sécurisée.
+    La date de création (createdAt) et la date de dernière mise à jour (updatedAt) sont enregistrées pour chaque utilisateur.
+    Chaque utilisateur peut avoir plusieurs comptes associés.
+
+Account (Compte) :
+    Ce modèle représente les comptes financiers des utilisateurs.
+    Chaque compte a un identifiant unique (id) généré automatiquement.
+    Le type de compte (type) peut être "personal" (personnel) ou "child" (enfant).
+    Le solde du compte (balance) est enregistré.
+    La date de création (createdAt) et la date de dernière mise à jour (updatedAt) sont enregistrées pour chaque compte.
+    Chaque compte est associé à un seul utilisateur propriétaire (owner).
+    Pour les comptes enfants, il existe une relation optionnelle avec le compte parent (parent).
+
+Transaction (Transaction) :
+    Ce modèle représente les transactions financières effectuées sur les comptes.
+    Chaque transaction a un identifiant unique (id) généré automatiquement.
+    Le montant de la transaction (amount) est enregistré.
+    Le type de transaction (type) peut être "deposit" (dépôt) ou "expense" (dépense).
+    Une description de la transaction (description) est enregistrée.
+    La date de création (createdAt) et la date de dernière mise à jour (updatedAt) sont enregistrées pour chaque transaction.
+    Chaque transaction est associée à un compte spécifique (account).
+
+CalendarEvent (Événement de Calendrier) :
+    Ce modèle représente les événements planifiés dans le calendrier de dépenses.
+    Chaque événement a un identifiant unique (id) généré automatiquement.
+    L'utilisateur auquel appartient l'événement est enregistré (userId).
+    Une description de l'événement (description), le montant (amount) et la date (date) sont enregistrés.
+    La date de création (createdAt) et la date de dernière mise à jour (updatedAt) sont enregistrées pour chaque événement.
+
+ForumPost (Message du Forum) :
+    Ce modèle représente les messages publiés sur le forum de partage entre utilisateurs.
+    Chaque message a un identifiant unique (id) généré automatiquement.
+    L'utilisateur qui a publié le message est enregistré (userId).
+    Le contenu du message (content) est enregistré.
+    La date de création (createdAt) et la date de dernière mise à jour (updatedAt) sont enregistrées pour chaque message.

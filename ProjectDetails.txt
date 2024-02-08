@@ -1,0 +1,68 @@
+Authentification et Profils Utilisateurs :
+    Création de comptes utilisateurs avec des profils distincts (compte personnel, compte enfant).
+    Système d'authentification sécurisé.
+
+Calendrier de Dépenses :
+    Planification avancée des dépenses avec un calendrier intégré.
+    Possibilité d'ajouter des événements récurrents pour des dépenses régulières.
+
+Gestion de Portefeuille :
+    Suivi des soldes de portefeuille pour chaque utilisateur.
+    Déduction automatique des dépenses planifiées du portefeuille.
+
+Transactions Instantanées :
+    Capacité à créer des dépôts ou des dépenses immédiates.
+    Alerte en cas de conflit avec le calendrier de dépenses planifiées.
+
+Motif Obligatoire :
+    Toutes les transactions doivent être accompagnées d'un motif ou d'une description.
+
+Comptes Parentaux :
+    Les comptes parentaux peuvent gérer les comptes enfants.
+    Alertes pour les transactions effectuées par les enfants.
+
+Historique des Transactions :
+    Enregistrement de l'historique des transactions pour chaque utilisateur.
+
+Bilan de Dépenses :
+    Calcul et affichage du bilan de dépenses pour chaque utilisateur.
+    Visualisation des tendances de dépenses sur une période donnée.
+
+Compte Épargne :
+    Création automatique d'un compte épargne pour chaque utilisateur.
+    Système de suggestion d'épargne basé sur les habitudes de dépenses.
+
+Outils d'Économie et d'Épargne :
+    Suivi des objectifs d'épargne.
+    Conseils personnalisés pour économiser de l'argent.
+    Visualisation graphique des progrès réalisés dans les économies et les épargnes.
+
+Notifications et Alertes :
+    Notifications pour les dépenses planifiées, les dépenses instantanées, les alertes de conflits, etc.
+    Alertes pour les soldes de portefeuille faibles ou négatifs.
+
+Sécurité et Confidentialité :
+    Cryptage des données sensibles.
+    Options de confidentialité pour limiter l'accès aux informations financières.
+
+Assistance Client :
+    Support client intégré pour répondre aux questions et résoudre les problèmes.
+    Section FAQ et guides d'utilisation.
+
+Compatibilité Multiplateforme :
+    Disponibilité sur plusieurs appareils et plateformes (web, iOS, Android).
+
+Langues et Devises Multiples :
+    Prise en charge de plusieurs langues et devises pour une accessibilité mondiale.
+
+Intégration de Services Financiers :
+    Connexion à des services bancaires tiers pour importer automatiquement les transactions.
+    Intégration de services de paiement en ligne pour faciliter les transactions.
+
+Forum de Partage entre Utilisateurs :
+
+    Plateforme de discussion permettant aux utilisateurs de partager des conseils, astuces et expériences en matière de gestion financière.
+    Sections thématiques sur l'épargne, les bons plans, les investissements, etc.
+    Modération pour assurer un environnement sûr et respectueux.
+    Système de notation et de commentaires pour les contributions des utilisateurs.
+    Possibilité de poser des questions et de solliciter des conseils personnalisés.
