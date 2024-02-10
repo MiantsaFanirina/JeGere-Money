@@ -1,5 +1,4 @@
 "use client"
-import Cookies from 'js-cookie'
 import Link from 'next/link'
 
 // components
@@ -11,12 +10,12 @@ function LoginForm ({formAction}: {formAction: any})
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const res = await formAction(formData)
-    if(res.register)
-    {
-      Cookies.set('authToken', res.register, { expires: 31 })
+    
+    if (res.register) {
+      localStorage.setItem('authToken', res.register)
+      localStorage.setItem('userId', res.userId)
       window.location.href = '/home'
-    }
-    else {
+    } else {
       console.log(res)
     }
   }

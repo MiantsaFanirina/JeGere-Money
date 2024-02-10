@@ -1,5 +1,5 @@
+"use client"
 import Link from "next/link"
-import Cookies from "js-cookie"
 // components
 import GoBack from "@components/GoBack"
 
@@ -9,15 +9,16 @@ function RegisterForm ({formAction} : {formAction: any})
     event.preventDefault()
     const formData = new FormData(event.currentTarget)
     const res = await formAction(formData)
-    if(res.register)
-    {
-      Cookies.set('authToken', res.register, { expires: 31 })
+    
+    if (res.register) {
+      localStorage.setItem('authToken', res.register)
+      localStorage.setItem('userId', res.userId)
       window.location.href = '/home'
-    }
-    else {
+    } else {
       console.log(res)
     }
   }
+
   return (
     <form onSubmit={handleSubmit} className="w-full h-screen flex flex-col items-center justify-center">
       <GoBack/>
